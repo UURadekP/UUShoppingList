@@ -1,0 +1,104 @@
+[
+    {
+        "name": "testList",
+        "listid": "abc",
+        "items": [
+            {
+                "name": "Housky",
+                "id":"fc1fb9b9f4766e63",
+                "amount": "4",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "Párek",
+                "id":"fc1fb9b9f4766e64",
+                "amount": "2",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "Mléko",
+                "id":"fc1fb9b9f4766e65",
+                "amount": "1",
+                "unit": "l",
+                "completed": true
+            },
+            {
+                "name": "Smetana",
+                "id":"fc1fb9b9f4766e66",
+                "amount": "0.25",
+                "unit": "l",
+                "completed": true
+            },
+            {
+                "name": "Máslo",
+                "id":"fc1fb9b9f4766e67",
+                "amount": "500",
+                "unit": "g",
+                "completed": true
+            },
+            {
+                "name": "Balící papír",
+                "id":"fc1fb9b9f4766e68",
+                "amount": "10",
+                "unit": "pc",
+                "completed": false
+            }],
+        "ownerid": "1",
+        "users": [
+            {"id": "2"}
+        ]
+    },
+    {
+        "name": "testList2",
+        "listid": "def",
+        "items": [
+            {
+                "name": "test12",
+                "id":"fc1fb9b9f4766e63",
+                "amount": "10",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "test22",
+                "id":"fc1fb9b9f4766e64",
+                "amount": "10",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "test32",
+                "id":"fc1fb9b9f4766e65",
+                "amount": "10",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "test42",
+                "id":"fc1fb9b9f4766e66",
+                "amount": "10",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "test52",
+                "id":"fc1fb9b9f4766e67",
+                "amount": "10",
+                "unit": "pc",
+                "completed": true
+            },
+            {
+                "name": "test62",
+                "id":"fc1fb9b9f4766e68",
+                "amount": "10",
+                "unit": "pc",
+                "completed": false
+            }],
+        "ownerid": "3",
+        "users": [
+            {"id": "4"}
+        ]
+    }
+]
