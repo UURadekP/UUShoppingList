@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Button, Form, Modal, Nav, Dropdown, NavItem, Alert, FormControl, FormGroup } from 'react-bootstrap'
+import { Button, Form, Modal, Nav, Col, Alert, FormControl, FormGroup, Row } from 'react-bootstrap'
 import itemContext from "../itemContext";
 import userContext from "../userContext";
 import login from './login';
@@ -8,8 +8,8 @@ import "../sidebar.css";
 
 const Header = () => {
 
-    const {userState, setUserState} = useContext(userContext);
-    const {isOwner, setIsOwner, isMember, setIsMember} = useContext(listContext)
+    const { userState, setUserState } = useContext(userContext);
+    const { isOwner, setIsOwner, isMember, setIsMember } = useContext(listContext)
     const [loginFail, setLoginFail] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     // const [showRegister, setShowRegister] = useState(false); plánuji využít až s připojením backendu
@@ -28,7 +28,7 @@ const Header = () => {
         if (result.success) {
             delete result.success;
             setUserState(result);
-            
+
 
             //schování login tlačítka
             hideLogin();
@@ -36,41 +36,44 @@ const Header = () => {
             setLoginFail(true);
         }
     };
-        //schování login tlačítka
+    //schování login tlačítka
     const hideLogin = () => {
         setShowLogin(false);
         setLoginFail(false);
         setLoginFormData(defaultLoginData);
     }
-        //odhlášení
+    //odhlášení
     const logoutHandler = e => {
         setUserState("");
         setIsOwner(false);
         setIsMember(false);
-        
+
     };
 
 
 
     return (
-    <div style={{}}>
-        <div className='header' >
-            <h1>Welcome, {(userState.username === undefined) ? ("guest"):(userState.username)}</h1>
-            
+        <div style={{}}>
+            <div className='header' >
 
-        
-        { userState ? (
-                // Pokud je uživatel přihlášen
-                <Nav className='nav-form-log-btn'>
-                            <Button className="headerbutton" onClick={logoutHandler}>Logout</Button>
-                </Nav>
-            ) : (
-                // Pokud uživatel není přihlášen
-                <div className='nav-form-log-btn' style={{display:'inline'}}>
-                    <Button  className="headerbutton" onClick={() => setShowLogin(true)}>Login</Button>
-                    <Button  className="headerbutton">Register</Button>
-                </div>
-            )}
+
+                        <h1 style={{float:'left', fontSize:'1.1em'}}>Logged in as:  {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
+
+                        {userState ? (
+                            // Pokud je uživatel přihlášen
+                            <Nav>
+                                <Button className="headerbutton" onClick={logoutHandler}>Logout</Button>
+                            </Nav>
+                        ) : (
+                            // Pokud uživatel není přihlášen
+                            <div>
+                                <Button className="headerbutton" onClick={() => setShowLogin(true)}>Login</Button>
+                                <Button className="headerbutton">Register</Button>
+                            </div>
+                        )}
+
+
+
 
                 <Modal dialogClassName='loginModal' show={showLogin} onHide={hideLogin}>
                     <Form onSubmit={loginHandler}>
@@ -83,18 +86,18 @@ const Header = () => {
                             </Alert>}
                             <FormGroup>
                                 <FormControl
-                                label='Username'
-                                type='text'
-                                placeholder='Enter username'
-                                onChange={(event) => loginFormData.username = event.target.value}
+                                    label='Username'
+                                    type='text'
+                                    placeholder='Enter username'
+                                    onChange={(event) => loginFormData.username = event.target.value}
                                 />
                             </FormGroup>
                             <FormGroup>
                                 <FormControl
-                                label='Password'
-                                type='password'
-                                placeholder='Enter password'
-                                onChange={(event) => loginFormData.password = event.target.value}
+                                    label='Password'
+                                    type='password'
+                                    placeholder='Enter password'
+                                    onChange={(event) => loginFormData.password = event.target.value}
                                 />
                             </FormGroup>
                         </Modal.Body>
@@ -104,8 +107,8 @@ const Header = () => {
                     </Form>
                 </Modal>
 
+            </div>
         </div>
-    </div>
     )
 }
 

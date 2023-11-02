@@ -6,16 +6,10 @@ import listContext from "../listContext";
 
 
 
-
 const ShoppingListItem = ({item, index, onDelete}) => {
 
     const [ showConfirmDialog, setShowConfirmDialog] = useState(false);
     const {list, setList, isOwner, setIsOwner} = useContext(listContext);
-
-    console.log("item: " + item);
-
-
-    
 
     const handleCheck = () => { 
 
@@ -28,13 +22,13 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         <div 
             style={
                 item.completed == true  
-              ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)',width: '80%', height: '100%',fontSize:'3vw', marginTop:'5px', marginLeft:'5px',border: '0.2vw solid green'}) 
-              : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '80%', height: '100%',fontSize:'3vw', marginTop:'5px', marginLeft:'5px', border: '0.2vw solid red'})}>
+              ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)',width: '95%', height: '100%',fontSize:'3em', marginTop:'1%',border: '0.2vw solid green'}) 
+              : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'3em', marginTop:'1%', border: '0.2vw solid red'})}>
         <div>
-        <p>
-        {item.name}, 
-        {" \n" + item.amount + item.unit}
-        </p>
+            <p>
+                {item.name + " "}
+                {item.amount + item.unit}
+            </p>
         </div>
         <div style={{display: 'inline-flex', float:'right'}}>
         
@@ -45,7 +39,7 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         { isOwner === true ? (
         <Button 
         onClick={() => {setShowConfirmDialog(true)}}
-        style={{width: '50px', height:'50px', fontSize:'1vh', justifyContent:'left', marginLeft:'5%' }}>Delete</Button>) : ("")}
+        style={{width: '50px', height:'50px', justifyContent:'center', marginLeft:'5%', marginBottom: '5%', marginRight:'1%' }}><i className="fa fa-trash-o" style={{fontSize:'25px'}}></i></Button>) : ("")}
         </div>
 
         

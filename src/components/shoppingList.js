@@ -115,7 +115,7 @@ const ShoppingList = ({id}) => {
 
                         if (filterByChecked === false && filterByNotChecked === false) {
                             return (
-                                <Col key={item.id} className='d-flex justify-content-center' md={6} lg={5} xl={4} xxl={3}>
+                                <Col key={item.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
                                     <ShoppingListItem
                                         item={item}
                                         index={listIndex}
@@ -128,7 +128,7 @@ const ShoppingList = ({id}) => {
 
                             
                             return (
-                                <Col key={item.id} className='d-flex justify-content-center' md={6} lg={5} xl={4} xxl={3}>
+                                <Col key={item.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
                                     <ShoppingListItem
                                         item={item}
                                         index={listIndex}
@@ -137,7 +137,7 @@ const ShoppingList = ({id}) => {
                                 
                         } else if (item.completed === false && filterByNotChecked === true) {
                             return (
-                                <Col key={item.id} className='d-flex justify-content-center' md={6} lg={5} xl={4} xxl={3}>
+                                <Col key={item.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
                                     <ShoppingListItem
                                         item={item}
                                         index={listIndex}
