@@ -52,17 +52,19 @@ const AddItemModal = ({ id }) => {
 
       let listIndex = list.map((list) => {return list.listid}).indexOf(id);
 
+      console.log(formState);
+
       //menší validace + visuální update
       if (formState.name.length > 24) {
         setTooLong(true);
         return;
       }
 
-      if (formState.amount < 0) {
+      if (formState.amount <= 0) {
         setNegative(true);
         setTextinAmount(false);
         return;
-      } else if (typeof formState.amount !== String) {
+      } else if (isNaN(formState.amount) === true) {
         setTextinAmount(true);
         setNegative(false);
         return;
@@ -109,25 +111,23 @@ const AddItemModal = ({ id }) => {
               </Form.Group>
 
               <Row md={1} lg={1} xl={1} xxl={1}>
-                <Col md={4} lg={4} xl={4} xxl={4}>
+                <Col md={3} lg={3} xl={3} xxl={3}>
           
               <Form.Group >
                 <Form.Label>Amount</Form.Label>
                 {textinAmount === true ? ( <Alert variant='danger'>Only number is expected!</Alert>) : ("")}
                 {negative === true ? ( <Alert variant='danger'>Number can't be negative!</Alert>) : ("")}
                 <Form.Control
-                  className='addModalFormEntryRest'
                   type="number"
-                  onChange={(event) => formState.amount = event.target.value}
+                  onChange={(event) => {formState.amount = event.target.valueAsNumber}}
                 />
               </Form.Group>
               </Col>
-              <Col md={2} lg={2} xl={2} xxl={2}>
+              <Col md={5} lg={5} xl={5} xxl={5}>
               <Form.Group
-                style={{marginLeft:'80%'}}>
+                style={{marginLeft:'50%'}}>
               <Form.Label>Unit</Form.Label>
                 <Form.Select
-                className='addModalFormEntryRest'
                 onChange={(event) => formState.unit = event.target.value}
                 >
                   <option value="l">l</option>

@@ -22,8 +22,8 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         <div 
             style={
                 item.completed == true  
-              ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)',width: '95%', height: '100%',fontSize:'3em', marginTop:'1%',border: '0.2vw solid green'}) 
-              : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'3em', marginTop:'1%', border: '0.2vw solid red'})}>
+              ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%',border: '0.2vw solid green'}) 
+              : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%', border: '0.2vw solid red'})}>
         <div>
             <p>
                 {item.name + " "}

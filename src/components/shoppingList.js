@@ -109,8 +109,6 @@ const ShoppingList = ({id}) => {
 
                     list[listIndex].items.map((item) => {
                         //filtry
-                        console.log("completed: " + item.completed + " " + filterByChecked);
-
                         if (item.name.includes(search.toLowerCase()) === true || search === "") {
 
                         if (filterByChecked === false && filterByNotChecked === false) {
