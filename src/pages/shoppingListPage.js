@@ -7,7 +7,7 @@ import "../sidebar.css";
 
 
 
-const shoppingListPage = ({}) => {
+const ShoppingListPage = ({}) => {
 
     let { id } = useParams();
 
@@ -23,4 +23,4 @@ const shoppingListPage = ({}) => {
 
 };
 
-export default shoppingListPage;
+export default ShoppingListPage;

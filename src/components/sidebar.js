@@ -26,6 +26,8 @@ const Sidebar = ({ id }) => {
         setIsMember(false);
         setList([...list]);
 
+        setShowConfirmDialog(false)
+
     }
 
 
@@ -67,7 +69,7 @@ const Sidebar = ({ id }) => {
         <ConfirmationDialog 
         userLeave={userState.username + " , you are about to leave shopping list ID: " + id}
         show={showConfirmDialog}
-        onConfirm={() => {removeSelfFromList(userState.id, listIndex), setShowConfirmDialog(false)}}
+        onConfirm={() => {removeSelfFromList(userState.id, listIndex)}}
         onCancel={() => {setShowConfirmDialog(false)}}>
             test
         </ConfirmationDialog>

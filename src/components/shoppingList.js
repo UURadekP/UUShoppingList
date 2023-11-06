@@ -76,6 +76,15 @@ const ShoppingList = ({id}) => {
             setFilterByNotChecked(false);
         }
 
+        function Checked() {
+            setFilterByChecked(true)
+            setFilterByNotChecked(false);
+        }
+
+        function notChecked() {
+            setFilterByChecked(false)
+            setFilterByNotChecked(true);
+        }
 
 
     
@@ -87,10 +96,10 @@ const ShoppingList = ({id}) => {
         <div className="shoppingList">
              <div className="searchDiv">
                 <Button className="searchbarButton" onClick={() => {
-                    console.log("click checked only"), setFilterByChecked(true), setFilterByNotChecked(false);
+                     Checked();
                 }}>Checked filter</Button>
                 <Button className="searchbarButton" onClick={() => {
-                    console.log("click unchecked only"), setFilterByNotChecked(true), setFilterByChecked(false);
+                    notChecked();
                 }}
                 >Unchecked filter</Button>
                 <Button className="searchbarButton" onClick={() => { removeFilters();
