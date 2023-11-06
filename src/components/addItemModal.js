@@ -52,7 +52,6 @@ const AddItemModal = ({ id }) => {
 
       let listIndex = list.map((list) => {return list.listid}).indexOf(id);
 
-      console.log(formState);
 
       //menší validace + visuální update
       if (formState.name.length > 24) {
@@ -74,7 +73,6 @@ const AddItemModal = ({ id }) => {
 
       list[listIndex].items.push(formState);
       setList([...list]);
-      console.log(list);
 
       setFormState(itemToState);
       handleClose();

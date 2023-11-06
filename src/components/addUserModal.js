@@ -93,15 +93,11 @@ function AddUserModal({ id, type }) {
 
 
       let userIndex = users.map((user) => {return user.username}).indexOf(formState.username.toLowerCase());
-      console.log(formState.username)
-      console.log("userIndex: " + userIndex);
 
       //get user's id
        let userid = users[userIndex].id;
-       console.log("userId: " + userid);
 
       let userIndexInList = list[listIndex].users.map((user) => {return user.id}).indexOf(userid);
-      console.log("userIndexInList: " + userIndexInList);
 
       // validace exietnce usera
       if (userIndexInList == -1) {

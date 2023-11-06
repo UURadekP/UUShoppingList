@@ -13,9 +13,6 @@ const users = [
 
 function login(username, password) {
 
-    console.log("username " + username);
-    console.log("password " + password);
-
     let user = users.find(user => user.username === username.toLowerCase());
 
     if (user != undefined && user.password === password) {
