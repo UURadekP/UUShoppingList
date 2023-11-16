@@ -16,7 +16,6 @@ const ShoppingList = ({id}) => {
     let index;
 
     const {list, setList, isOwner, setIsOwner, isMember ,setIsMember, isChecked, setIsChecked} = useContext(listContext);
-    const {items, setItems} = useContext(itemContext);
     const {userState, setUserState} = useContext(userContext);
     const [search, setSearch] = useState("");
     const [filterByNotChecked, setFilterByNotChecked] = useState(false);
@@ -39,7 +38,6 @@ const ShoppingList = ({id}) => {
     }
     function getIndexByID(id) {
         let listIndex = list.map((list) => {return list.listid}).indexOf(id)
-        console.log(list[listIndex]);
         return listIndex;
     }
     
@@ -59,7 +57,6 @@ const ShoppingList = ({id}) => {
 
         } else if (list[listIndex].users.map((user) => {return user.id}).indexOf(userState.id) !== -1) {
 
-            console.log(list.map((list) => {return list.users.map((user) => {return user.id})}).indexOf(userState.id))
 
             if (isOwner === true) {
                 setIsOwner(false);

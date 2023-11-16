@@ -1,7 +1,8 @@
 [
     {
         "name": "testList",
-        "listid": "abc",
+        "listid": 1,
+        "archived": "false",
         "items": [
             {
                 "name": "Housky",
@@ -52,7 +53,8 @@
     },
     {
         "name": "testList2",
-        "listid": "def",
+        "listid": 2,
+        "archived": "false",
         "items": [
             {
                 "name": "test12",

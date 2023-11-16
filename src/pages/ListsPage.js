@@ -1,28 +1,24 @@
 import React from "react";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
-import ShoppingList from "../components/shoppingList";
+import ListsList from "../components/ListsList";
 import { useParams } from "react-router-dom";
 import "../sidebar.css";
 
-
-
-const ShoppingListPage = ({}) => {
+const ListsPage = ({}) => {
 
     let { id } = useParams();
-
-    id = parseInt(id);
 
     return (<>
 
         <Header />
       <div className="wrapper">
-        <Sidebar id={id} type={1} />
-        <ShoppingList id={id} />
+        <Sidebar id={id} type={2} />
+        <ListsList />
       </div>
     </>)
 
 
 };
 
-export default ShoppingListPage;
+export default ListsPage;
