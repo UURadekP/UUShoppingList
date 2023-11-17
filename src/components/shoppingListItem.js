@@ -39,7 +39,7 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         { isOwner === true ? (
         <Button 
         onClick={() => {setShowConfirmDialog(true)}}
-        style={{width: '50px', height:'50px', justifyContent:'center', marginLeft:'5%', marginBottom: '5%', marginRight:'1%' }}><i className="fa fa-trash-o" style={{fontSize:'25px'}}></i></Button>) : ("")}
+        style={{width: '50px', height:'50px', justifyContent:'center', marginLeft:'5%', marginBottom: '5%', marginRight:'1%' }}><i className="fa-solid fa-trash-can" style={{fontSize:'25px'}}></i></Button>) : ("")}
         </div>
 
         

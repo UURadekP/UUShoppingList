@@ -22,7 +22,6 @@ const Sidebar = ({ id, type }) => {
     console.log("id: " + id);
     console.log("listIndex: " + listIndex);
 
-    console.log(list);
 
     function removeSelfFromList(userid, listIndex) {
         let userIndex = list[listIndex].users.map((user) => {return user.id}).indexOf(userid);

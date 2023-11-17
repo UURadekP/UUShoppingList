@@ -46,9 +46,9 @@
                 "unit": "pc",
                 "completed": false
             }],
-        "ownerid": "1",
+        "ownerid": 1,
         "users": [
-            {"id": "2"}
+            {"id": 2}
         ]
     },
     {
@@ -98,9 +98,9 @@
                 "unit": "pc",
                 "completed": false
             }],
-        "ownerid": "3",
+        "ownerid": 3,
         "users": [
-            {"id": "4"}
+            {"id": 4}
         ]
     }
 ]

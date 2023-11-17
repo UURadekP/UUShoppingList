@@ -95,7 +95,7 @@ function AddUserModal({ id, type }) {
       let userIndex = users.map((user) => {return user.username}).indexOf(formState.username.toLowerCase());
 
       //get user's id
-       let userid = users[userIndex].id;
+      let userid = users[userIndex].id;
 
       let userIndexInList = list[listIndex].users.map((user) => {return user.id}).indexOf(userid);
 

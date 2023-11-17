@@ -33,7 +33,7 @@ const ListsList = () => {
                 {userState.id === list.ownerid || list.users.map((user) => {return user.id}).indexOf(userState.id) !== -1 ? 
                 (
                 <ListsListTile 
-                list={list}
+                oneList={list}
                 isOwner={isOwner}
                 isMember={isMember} />) : ("")}
                 </Col>
