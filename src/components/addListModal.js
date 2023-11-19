@@ -11,7 +11,7 @@ const AddListModal = ({userid}) => {
     const listToState = {
         name: "",
         listid: Math.floor(Math.random()*10e12),
-        archived: "false",
+        archived: false,
         items: [],
         ownerid: userid,
         users: []
@@ -45,6 +45,7 @@ const AddListModal = ({userid}) => {
 
         list.push(formState);
         setList([...list]);
+        setFormState(listToState)
         handleClose();
     }
 

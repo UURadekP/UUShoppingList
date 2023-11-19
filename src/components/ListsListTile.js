@@ -24,15 +24,33 @@ const ListsListTile = ({oneList, isOwner, isMember}) => {
         console.log(list);
     }
 
-    function archiveList() {
+    function archiveList(lists, oneList) {
+        let listIndex = lists.map((list) => { return list.listid}).indexOf(oneList.listid);
+
+        lists[listIndex].archived = true;
+        setList([...lists]);
+
+    }
+
+    function unArchiveList(lists, oneList) {
+        let listIndex = lists.map((list) => { return list.listid}).indexOf(oneList.listid);
+
+        lists[listIndex].archived = false;
+        setList([...lists]);
 
     }
 
     return (
     <>
+        {console.log("onelist " + oneList.name + "  " + oneList.archived)}
+    <div style={
+        
+        oneList.archived === false ?  ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black'})
+        : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black', opacity:'0.5'})
     
-    <div style={{background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black'}}>
-    <Link to={`/list/${list.listid}`} style={{width:'95%', height:'100%', color:'black'}}>
+    }>
+    
+    <Link to={`/list/${oneList.listid}`} style={{width:'95%', height:'100%', color:'black'}}>
     <Col>
     <Row>
         <p>{oneList.name}</p>
@@ -53,10 +71,16 @@ const ListsListTile = ({oneList, isOwner, isMember}) => {
     </Row>
     <Row>
         <p>
-        { userState.id === oneList.ownerid ? (
+        { userState.id === oneList.ownerid && oneList.archived === false ? (
         <Button 
-        onClick={() => {setShowConfirmDialog(true)}}
-        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-box" style={{fontSize:'25px'}} ></i></Button>) : ("")}
+        onClick={() => {archiveList(list, oneList)}}
+        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-box" style={{fontSize:'25px'}} ></i></Button>) 
+        : 
+        (
+        <Button 
+        onClick={() => {unArchiveList(list, oneList)}}
+        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i class="fa-solid fa-box-open" style={{fontSize:'25px'}}></i></Button>)
+        }
         </p>
     </Row>
     </Col>

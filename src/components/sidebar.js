@@ -18,9 +18,7 @@ const Sidebar = ({ id, type }) => {
     const [ showConfirmDialog, setShowConfirmDialog] = useState(false);
     const [ showChangeListNameModal, setShowChangeListNameModal] = useState(false);
 
-    let listIndex = list.map((list) => {console.log("listid " + list.listid); return list.listid}).indexOf(id);
-    console.log("id: " + id);
-    console.log("listIndex: " + listIndex);
+    let listIndex = list.map((list) => {return list.listid}).indexOf(id);
 
 
     function removeSelfFromList(userid, listIndex) {
