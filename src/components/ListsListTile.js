@@ -42,7 +42,6 @@ const ListsListTile = ({oneList, isOwner, isMember}) => {
 
     return (
     <>
-        {console.log("onelist " + oneList.name + "  " + oneList.archived)}
     <div style={
         
         oneList.archived === false ?  ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black'})

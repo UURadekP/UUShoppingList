@@ -53,7 +53,6 @@ const ListsList = () => {
                 { 
 
                         list.map((list) => {
-                            console.log("archived " + list.archived)
                             if (userState.id === list.ownerid || list.users.map((user) => { return user.id }).indexOf(userState.id) !== -1) {
                             if (list.name.toLowerCase().includes(search.toLowerCase()) === true || search === "") {
                                 if (filterByArchived === false && filterByNotArchived === false) {
