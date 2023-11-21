@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import userContext from "../userContext";
 
 const users = [
     { username: 'radek', password: '1234', group: 'owners', id: 1 },

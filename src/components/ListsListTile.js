@@ -8,7 +8,7 @@ import ConfirmationDialog from "./ConfirmationDialog";
 
 
 
-const ListsListTile = ({oneList, isOwner, isMember}) => {
+const ListsListTile = ({oneList}) => {
 
     const {list, setList} = useContext(listContext);
     const {userState, setUserState} = useContext(userContext);
@@ -45,17 +45,17 @@ const ListsListTile = ({oneList, isOwner, isMember}) => {
     <div style={
         
         oneList.archived === false ?  ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black'})
-        : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black', opacity:'0.5'})
+        : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black',  opacity:'0.5'})
     
     }>
     
     <Link to={`/list/${oneList.listid}`} style={{width:'95%', height:'100%', color:'black'}}>
     <Col>
     <Row>
-        <p>{oneList.name}</p>
+        <p>Název Listu: {oneList.name}</p>
     </Row>
     <Row>
-        <p>abc</p>
+        <p>ID Listu: {oneList.listid}</p>
     </Row>
     </Col>
     </Link>

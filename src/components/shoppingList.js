@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import ShoppingListItem from "./shoppingListItem";
 import { Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
-import itemContext from "../itemContext";
 import userContext from "../userContext";
-import ContextProvider from "../ContextProvider";
 import listContext from "../listContext";
 import "../sidebar.css";
 
@@ -15,7 +13,7 @@ const ShoppingList = ({id}) => {
     
     let index;
 
-    const {list, setList, isOwner, setIsOwner, isMember ,setIsMember, isChecked, setIsChecked} = useContext(listContext);
+    const {list, setList, isOwner, setIsOwner, isMember ,setIsMember} = useContext(listContext);
     const {userState, setUserState} = useContext(userContext);
     const [search, setSearch] = useState("");
     const [filterByNotChecked, setFilterByNotChecked] = useState(false);

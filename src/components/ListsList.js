@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Button, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import userContext from "../userContext";
 import listContext from "../listContext";
@@ -9,8 +8,8 @@ import ListsListTile from "./ListsListTile";
 
 const ListsList = () => {
 
-    const { list, setList, isOwner, setIsOwner, isMember, setIsMember, isChecked, setIsChecked } = useContext(listContext);
-    const { userState, setUserState } = useContext(userContext);
+    const {list, setList} = useContext(listContext);
+    const {userState, setUserState} = useContext(userContext);
     const [search, setSearch] = useState("");
     const [filterByNotArchived, setFilterByNotArchived] = useState(false);
     const [filterByArchived, setFilterByArchived] = useState(false);
@@ -48,71 +47,60 @@ const ListsList = () => {
                     notArchived();
                 }}
                 >NotArchived filter</Button>
+                <Button className="searchbarButton" onClick={() => {
+                    removeFilters();
+                }}
+                >Remove Filters</Button>
                 </div>
-                {console.log(list)}
-                { 
+                <Row>{
 
-                        list.map((list) => {
-                            if (userState.id === list.ownerid || list.users.map((user) => { return user.id }).indexOf(userState.id) !== -1) {
+                    list.map((list) => {
+                        if (userState.id === list.ownerid || list.users.map((user) => { return user.id }).indexOf(userState.id) !== -1) {
                             if (list.name.toLowerCase().includes(search.toLowerCase()) === true || search === "") {
                                 if (filterByArchived === false && filterByNotArchived === false) {
-                            return (
-                                <>
-                                    <Row>
-                                        <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
+                                    return (
+                                        <>
+                                            <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
+                                                <ListsListTile
+                                                    oneList={list}
+                                                />
+                                            </Col>
+                                        </>
+                                    )
+                                } else if (list.archived === true && filterByArchived === true) {
+                                    return (
+                                        <>
+                                            <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
+                                                <ListsListTile
+                                                    oneList={list}
+                                                />
+                                            </Col>
+                                        </>
+                                    )
+                                } else if (list.archived === false && filterByNotArchived === true) {
+                                    return (
+                                        <>
+                                            <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
+                                                <ListsListTile
+                                                    oneList={list}
+                                                />
+                                            </Col>
+                                        </>
+                                    )
+                                }
 
-                                            <ListsListTile
-                                                oneList={list}
-                                                isOwner={isOwner}
-                                                isMember={isMember} /> : ("")
 
-                                        </Col>
-                                    </Row>
-                                </>
-                            )
-                        } else if (list.archived === true && filterByArchived === true) {
-                            return (
-                                <>
-                                    <Row>
-                                        <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
-
-                                            <ListsListTile
-                                                oneList={list}
-                                                isOwner={isOwner}
-                                                isMember={isMember} /> : ("")
-
-                                        </Col>
-                                    </Row>
-                                </>
-                            )
-                        } else if (list.archived === false && filterByNotArchived === true) {
-                            return (
-                                <>
-                                    <Row>
-                                        <Col key={list.id} className='d-flex justify-content-center' md={4} lg={4} xl={4} xxl={4}>
-
-                                            <ListsListTile
-                                                oneList={list}
-                                                isOwner={isOwner}
-                                                isMember={isMember} /> : ("")
-
-                                        </Col>
-                                    </Row>
-                                </>
-                            )
+                            }
                         }
-                        
-                    
                     }
-                    }}
                     )
                 }
-                    
-                    
-                    
-                    
-                    
 
+
+
+
+
+                </Row>
             </div>
         </>
     )

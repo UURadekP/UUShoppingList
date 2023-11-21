@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react"
-import { Form, Button, Modal, Alert, Col, Row} from "react-bootstrap";
-import itemContext from "../itemContext";
+import { Form, Button, Modal, Alert} from "react-bootstrap";
 import listContext from "../listContext";
 import userContext from "../userContext";
 import "../sidebar.css"
