@@ -57,13 +57,17 @@ const Header = () => {
 
     return (
         <div style={{}}>
+
                 <Form.Check // prettier-ignore
                     type="switch"
-                    style={{float: "right"}}
+                    style={
+                        darkMode === true ? {float: "right", color:"white"}  :  {float: "right", color:"black"}
+                    } 
                     label="Dark Mode"
                     defaultChecked="true"
                     onChange={() => {setDarkMode(!darkMode)}}
                 />
+
             <div className={darkMode === true ? 'header' : 'headerL'}>
 
 
