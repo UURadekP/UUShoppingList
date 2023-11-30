@@ -2,16 +2,7 @@ import React from "react"
 import { Modal, Button, Form, Alert } from "react-bootstrap"
 import { useState, useContext } from "react";
 import listContext from "../listContext";
-
-const users = [
-  { username: 'radek', password: '1234', group: 'owners', id: '1' },
-  { username: 'pepa', password: '1234', group: 'owners', id: '2' },
-  { username: 'honza', password: '1234', group: 'registered', id: '3' },
-  { username: 'david', password: '1234', group: 'registered', id: '4' },
-  { username: 'janek', password: '1234', group: 'registered', id: '5' },
-  { username: 'guest', password: '', group: 'guest', id: '6' },
-];
-
+import interfaceContext from "../interfaceContext";
 
 
 function ChangeListNameModal({ index }) {
@@ -20,11 +11,9 @@ function ChangeListNameModal({ index }) {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     const {list, setList} = useContext(listContext);
+    const {darkMode} = useContext(interfaceContext);
 
     let newName = "";
-
-
-
 
     const onSubmit = (event) => {
       event.preventDefault();
@@ -40,7 +29,7 @@ function ChangeListNameModal({ index }) {
     return (
     <>
 
-        <Button variant="primary" className="button" onClick={handleShow}>
+        <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
         Change List Name
         </Button>
 

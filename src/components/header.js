@@ -1,18 +1,21 @@
 import { useContext, useState } from 'react'
-import { Button, Form, Modal, Nav, Col, Alert, FormControl, FormGroup, Row } from 'react-bootstrap'
-import itemContext from "../itemContext";
+import { Button, Form, Modal, Nav, Alert, FormControl, FormGroup } from 'react-bootstrap'
 import userContext from "../userContext";
 import login from './login';
 import listContext from '../listContext';
+import interfaceContext from '../interfaceContext';
 import "../sidebar.css";
 
 const Header = () => {
 
     const { userState, setUserState } = useContext(userContext);
+    const { darkMode, setDarkMode, language, setLanguage } = useContext(interfaceContext);
     const { isOwner, setIsOwner, isMember, setIsMember } = useContext(listContext)
     const [loginFail, setLoginFail] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     // const [showRegister, setShowRegister] = useState(false); plánuji využít až s připojením backendu
+
+    console.log(darkMode);
 
     const defaultLoginData = {
         username: 'guest',
@@ -54,23 +57,37 @@ const Header = () => {
 
     return (
         <div style={{}}>
-            <div className='header' >
+                <Form.Check // prettier-ignore
+                    type="switch"
+                    style={{float: "right"}}
+                    label="Dark Mode"
+                    defaultChecked="true"
+                    onChange={() => {setDarkMode(!darkMode)}}
+                />
+            <div className={darkMode === true ? 'header' : 'headerL'}>
 
 
-                        <h1 style={{float:'left', fontSize:'1.1em'}}>Logged in as:  {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
+                        <h1 style={
+                            darkMode === true ? {float:'left', fontSize:'1.1em', color: "white"} : {float:'left', fontSize:'1.1em'}
+                        }>Logged in as:  {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
 
                         {userState ? (
                             // Pokud je uživatel přihlášen
                             <Nav>
-                                <Button className="headerbutton" onClick={logoutHandler}>Logout</Button>
+                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} onClick={logoutHandler}>Logout</Button>
                             </Nav>
                         ) : (
                             // Pokud uživatel není přihlášen
-                            <div>
-                                <Button className="headerbutton" onClick={() => setShowLogin(true)}>Login</Button>
-                                <Button className="headerbutton">Register</Button>
-                            </div>
+                            <Nav>
+                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"}  onClick={() => setShowLogin(true)}>Login</Button>
+                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} >Register</Button>
+                            </Nav>
                         )}
+
+
+
+
+
 
 
 

@@ -5,6 +5,7 @@ import { Col, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
 import userContext from "../userContext";
 import listContext from "../listContext";
+import interfaceContext from "../interfaceContext";
 import ConfirmationDialog from "./ConfirmationDialog";
 import ChangeListNameModal from "./changeListNameModal";
 import "../sidebar.css"
@@ -15,6 +16,7 @@ const Sidebar = ({ id, type }) => {
 
     const {userState, setUserState} = useContext(userContext);
     const {list, setList, isOwner, setIsOwner, isMember ,setIsMember} = useContext(listContext);
+    const { darkMode, setDarkMode, language, setLanguage } = useContext(interfaceContext);
     const [ showConfirmDialog, setShowConfirmDialog] = useState(false);
     const [ showChangeListNameModal, setShowChangeListNameModal] = useState(false);
 
@@ -39,11 +41,11 @@ const Sidebar = ({ id, type }) => {
                 {
                     return (
                         <>
-                            <div className="sidebar">
-                                <h3 className="sidebar-header">
+                            <div className={darkMode === true ? "sidebar" : "sidebarL"}>
+                                <h3 className={darkMode === true ? "sidebar-header" : "sidebar-headerL"}>
                                     {list[listIndex].name === undefined ? ("") : (list[listIndex].name + "'s")} Menu:
                                 </h3>
-                                <ul>
+                                <ul className={darkMode === true ? "ul" : "ulL"}>
                     
                             {isMember === true || isOwner === true || userState.group === "owners" ? (
                             <li><AddItemModal id={id} type={"add"}  /></li>
@@ -85,11 +87,11 @@ const Sidebar = ({ id, type }) => {
                 }
                 case 2: {
                     return (
-                        <div className="sidebar">
-                                <h3 className="sidebar-header">
+                        <div className={darkMode === true ? "sidebar" : "sidebarL"}>
+                                <h3 className={darkMode === true ? "sidebar-header" : "sidebar-headerL"}>
                                     Menu:
                                 </h3>
-                                <ul>
+                                <ul className={darkMode === true ? "ul" : "ulL"}>
                                 {userState.username === "guest" || userState.username === undefined ? ("") : (<li><AddListModal userid={userState.id}/></li>)}
                                 </ul>
                             

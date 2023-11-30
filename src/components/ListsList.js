@@ -4,12 +4,14 @@ import { useState, useContext } from "react";
 import userContext from "../userContext";
 import listContext from "../listContext";
 import ListsListTile from "./ListsListTile";
+import interfaceContext from "../interfaceContext";
 
 
 const ListsList = () => {
 
     const {list, setList} = useContext(listContext);
     const {userState, setUserState} = useContext(userContext);
+    const {darkMode, setDarkMode, language, setLanguange} = useContext(interfaceContext)
     const [search, setSearch] = useState("");
     const [filterByNotArchived, setFilterByNotArchived] = useState(false);
     const [filterByArchived, setFilterByArchived] = useState(false);
@@ -32,7 +34,7 @@ const ListsList = () => {
     return (
         <>
             <div className="shoppingList">
-                <div className="searchDiv">
+                <div className={ darkMode === true ? "searchDiv" : "searchDivL"}>
                     <input
                         className="searchBar"
                         type="search"
@@ -40,14 +42,14 @@ const ListsList = () => {
                         value={search}
                         onChange={(event) => setSearch(event.target.value)}
                     />
-                <Button className="searchbarButton" onClick={() => {
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                      Archived();
                 }}>Archived filter</Button>
-                <Button className="searchbarButton" onClick={() => {
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     notArchived();
                 }}
                 >NotArchived filter</Button>
-                <Button className="searchbarButton" onClick={() => {
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     removeFilters();
                 }}
                 >Remove Filters</Button>

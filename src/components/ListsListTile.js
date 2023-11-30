@@ -3,6 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import userContext from "../userContext";
 import listContext from "../listContext";
+import interfaceContext from "../interfaceContext";
 import ConfirmationDialog from "./ConfirmationDialog";
 
 
@@ -11,6 +12,7 @@ import ConfirmationDialog from "./ConfirmationDialog";
 const ListsListTile = ({oneList}) => {
 
     const {list, setList} = useContext(listContext);
+    const { darkMode, setDarkMode, language, setLanguage } = useContext(interfaceContext);
     const {userState, setUserState} = useContext(userContext);
     const [ showConfirmDialog, setShowConfirmDialog] = useState(false);
 
@@ -44,12 +46,16 @@ const ListsListTile = ({oneList}) => {
     <>
     <div style={
         
-        oneList.archived === false ?  ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black'})
-        : ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display:'inline-flex', width: '95%', height: '100%',fontSize:'1em', marginTop:'1%',paddingRight:'2%', border: '0.2vw solid black',  opacity:'0.5'})
-    
+        oneList.archived === false && darkMode === true ?  ({background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', display:'inline-flex', width: '95%', height: '100%',fontSize: '1em', marginTop: '1%',paddingRight: '2%', border: '0.2vw solid black'})
+        : oneList.archived === true && darkMode === true ? ({background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', display:'inline-flex', width: '95%', height: '100%',fontSize: '1em', marginTop: '1%',paddingRight: '2%', border: '0.2vw solid black', opacity:'0.5'})
+        : oneList.archived === false && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display: 'inline-flex', width: '95%', height: '100%',fontSize: '1em', marginTop: '1%',paddingRight: '2%', border: '0.2vw solid black'})
+        : oneList.archived === true && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', display: 'inline-flex', width: '95%', height: '100%',fontSize: '1em', marginTop: '1%',paddingRight: '2%', border: '0.2vw solid black', opacity: '0.5'}) : ("")
     }>
     
-    <Link to={`/list/${oneList.listid}`} style={{width:'95%', height:'100%', color:'black'}}>
+    <Link to={`/list/${oneList.listid}`} style={
+        darkMode === true ? {width: '95%', height: '100%', textDecoration: 'none', color: 'white'}
+        : darkMode === false ? {width: '95%', height: '100%', textDecoration: 'none', color: 'black'} : ("")
+        }>
     <Col>
     <Row>
         <p>Název Listu: {oneList.name}</p>

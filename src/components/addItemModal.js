@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import { useState } from "react";
 import { Form, Button, Modal, Alert, Col, Row} from "react-bootstrap";
-import itemContext from "../itemContext";
 import listContext from "../listContext";
 import userContext from "../userContext";
+import interfaceContext from "../interfaceContext";
 import "../sidebar.css"
 
 
@@ -40,9 +40,9 @@ const AddItemModal = ({ id }) => {
       event.preventDefault();
     }
 
-    const {items, setItems, isOwner, setIsOwner} = useContext(itemContext);
     const {list, setList} = useContext(listContext)
     const {userState, setUserState} = useContext(userContext);
+    const {darkMode} = useContext(interfaceContext);
 
     
 
@@ -84,7 +84,7 @@ const AddItemModal = ({ id }) => {
 
     return (
     <>
-        <Button variant="primary" className="button" onClick={handleShow}>
+        <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
           Add Item
         </Button>
 

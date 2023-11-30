@@ -1,11 +1,16 @@
-Spuštění aplikace probíha na route /list/:id 
+Všechny listy na routě /lists
+Jednotlivý list na routě /list/:id
 
 Momentálně implementovány 2 listy:
 
-ID: abc, def
+git: https://github.com/UURadekP/UUShoppingList
 
-abc: radek (owner listu), pepa (member listu)
-def: honza (owner listu), david (member listu)
+ID: 1, 2
+
+1: radek (owner listu), pepa (member listu)
+2: honza (owner listu), david (member listu)
+
+Při vytvoření listu je přihlášný uživatel nastavený jako owner listu.
 
 Přístupy:
 const users = [
@@ -16,8 +21,5 @@ const users = [
     { username: 'janek', password: '1234', group: 'registered', id: '5' },
     { username: 'guest', password: '', group: 'guest', id: '6' },
 ];
-
-
-user janek němá žádné přístupy, je tu jen kvůli testování funkčnosti přidání usera do listu.
 
 Každý uživatel je automaticky přihlášen jako guest.

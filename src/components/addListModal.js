@@ -3,9 +3,11 @@ import { Form, Button, Modal, Alert} from "react-bootstrap";
 import listContext from "../listContext";
 import userContext from "../userContext";
 import "../sidebar.css"
+import interfaceContext from "../interfaceContext";
 
 const AddListModal = ({userid}) => {
     const {list, setList} = useContext(listContext);
+    const {darkMode} = useContext(interfaceContext);
 
     const listToState = {
         name: "",
@@ -50,7 +52,7 @@ const AddListModal = ({userid}) => {
 
     return (
     <>
-        <Button variant="primary" className="button" onClick={handleShow}>
+        <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
           Add list
         </Button>
 

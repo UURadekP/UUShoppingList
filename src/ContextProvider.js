@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import itemContext from "./itemContext";
+import interfaceContext from "./interfaceContext";
 import userContext from "./userContext";
 import listContext from "./listContext";
-
-const itemsJson = require('./items.json');
 
 const users = [
   { username: 'radek', password: '1234', group: 'owners', id:'1' },
@@ -21,22 +19,23 @@ const listsJson = require('./lists.json');
 
 function ContextProvider({children}) {
 
-  const [items, setItems] = useState(itemsJson);
   const [userState, setUserState] = useState(users);
   const [list, setList] = useState(listsJson);
   const [isOwner, setIsOwner] = useState(false);
   const [isMember, setIsMember] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
+  const [language, setLanguage] = useState("english")
 
 
     return (
     <>
 
     <listContext.Provider value={{list, setList, isOwner, setIsOwner, isMember, setIsMember}}>
-    <itemContext.Provider value={{items, setItems}}>
+    <interfaceContext.Provider value={{darkMode, setDarkMode, language, setLanguage}}>
       <userContext.Provider value={{userState, setUserState}}>
       {children}
       </userContext.Provider>
-    </itemContext.Provider>
+    </interfaceContext.Provider>
     </listContext.Provider>
     
     

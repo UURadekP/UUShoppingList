@@ -4,6 +4,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import userContext from "../userContext";
 import listContext from "../listContext";
+import interfaceContext from "../interfaceContext";
 import "../sidebar.css";
 
 
@@ -14,6 +15,7 @@ const ShoppingList = ({id}) => {
     let index;
 
     const {list, setList, isOwner, setIsOwner, isMember ,setIsMember} = useContext(listContext);
+    const { darkMode, setDarkMode, language, setLanguage } = useContext(interfaceContext);
     const {userState, setUserState} = useContext(userContext);
     const [search, setSearch] = useState("");
     const [filterByNotChecked, setFilterByNotChecked] = useState(false);
@@ -89,15 +91,15 @@ const ShoppingList = ({id}) => {
 
 
         <div className="shoppingList">
-             <div className="searchDiv">
-                <Button className="searchbarButton" onClick={() => {
+             <div className={ darkMode === true ? "searchDiv" : "searchDivL"}>
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                      Checked();
                 }}>Checked filter</Button>
-                <Button className="searchbarButton" onClick={() => {
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     notChecked();
                 }}
                 >Unchecked filter</Button>
-                <Button className="searchbarButton" onClick={() => { removeFilters();
+                <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => { removeFilters();
                 }}>Remove Filters</Button>
                 <input
                     className="searchBar"

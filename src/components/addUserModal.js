@@ -2,6 +2,7 @@ import React from "react"
 import { Modal, Button, Form, Alert } from "react-bootstrap"
 import { useState, useContext } from "react";
 import listContext from "../listContext";
+import interfaceContext from "../interfaceContext";
 
 const users = [
   { username: 'radek', password: '1234', group: 'owners', id: '1' },
@@ -22,6 +23,7 @@ function AddUserModal({ id, type }) {
     const {list, setList} = useContext(listContext);
     const [Fail, setFail] = useState(false);
     const [dupe, setDupe] = useState(false);
+    const {darkMode} = useContext(interfaceContext);
 
     const newUser = {
       username: '',
@@ -114,7 +116,7 @@ function AddUserModal({ id, type }) {
     return (
     <>
 
-        <Button variant="primary" className="button" onClick={handleShow}>
+        <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
         {type === "add" ? ("Add user") : ("Remove user")}
         </Button>
 
