@@ -48,7 +48,7 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         
         </div>
 
-        <ConfirmationDialog itemDelete={"You are about to delete " + item.name}
+        <ConfirmationDialog itemDelete={language === "english" ? "You are about to remove " + item.name : "Chystáte se smazat " + item.name}
         show={showConfirmDialog}
         onConfirm={() => {
             onDelete(index, item.id);

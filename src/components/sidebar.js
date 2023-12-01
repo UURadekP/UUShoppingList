@@ -43,7 +43,7 @@ const Sidebar = ({ id, type }) => {
                         <>
                             <div className={darkMode === true ? "sidebar" : "sidebarL"}>
                                 <h3 className={darkMode === true ? "sidebar-header" : "sidebar-headerL"}>
-                                    {list[listIndex].name === undefined ? ("") : (list[listIndex].name + "'s")} Menu:
+                                    {list[listIndex].name === undefined ? ("") : (language === "english" ? list[listIndex].name + "'s" : list[listIndex].name )} Menu:
                                 </h3>
                                 <ul className={darkMode === true ? "ul" : "ulL"}>
                     
@@ -61,7 +61,7 @@ const Sidebar = ({ id, type }) => {
                             ) : ("")}
                     
                             {isMember === true ? (
-                            <li><Button className="button" onClick={() => {setShowConfirmDialog(true)}}>Leave</Button></li>
+                            <li><Button className={darkMode === true ? "button" : "buttonL"} onClick={() => {setShowConfirmDialog(true)}}>{language === "english" ? "Leave" : "Odejít"}</Button></li>
                             ) : ("")}
                     
                             {isOwner === true ? (
@@ -74,7 +74,8 @@ const Sidebar = ({ id, type }) => {
                     
                             
                             <ConfirmationDialog 
-                            userLeave={userState.username + " , you are about to leave shopping list ID: " + id}
+                            userLeave={language === "english" ? userState.username + " , you are about to leave shopping list ID: " + id : userState.username + ", Chystáte se opustit list s ID: " + id}
+                            text={language === "english" ? "This action is irreversible" : "Tuto akci není možné vzít zpět"} 
                             show={showConfirmDialog}
                             onConfirm={() => {removeSelfFromList(userState.id, listIndex)}}
                             onCancel={() => {setShowConfirmDialog(false)}}>

@@ -1,10 +1,13 @@
 import { useContext, useState } from 'react'
-import { Button, Form, Modal, Nav, Alert, FormControl, FormGroup } from 'react-bootstrap'
+import { Button, Form, Modal, Nav, Alert, FormControl, FormGroup, NavDropdown } from 'react-bootstrap'
 import userContext from "../userContext";
 import login from './login';
 import listContext from '../listContext';
 import interfaceContext from '../interfaceContext';
 import "../sidebar.css";
+const flag_cz = require('../flag_cz.jpg');
+const flag_en = require('../flag_en.png');
+
 
 const Header = () => {
 
@@ -56,29 +59,40 @@ const Header = () => {
 
 
     return (
+        
         <div style={{}}>
-
+                <div style={{float: "right", flex: "inline", flexWrap: "wrap", width:"12vw", marginRight: "5%", marginTop: "1%"}}>
                 <Form.Check // prettier-ignore
                     type="switch"
                     style={
                         darkMode === true ? {float: "right", color:"white"}  :  {float: "right", color:"black"}
                     } 
-                    label="Dark Mode"
+                    label="Mode"
                     defaultChecked="true"
                     onChange={() => {setDarkMode(!darkMode)}}
                 />
-
+ 
+            <Nav style={{float: "right"}}>
+                <NavDropdown
+                    title="Language"
+                    menuVariant="dark"
+                >
+                    <NavDropdown.Item onClick={() => setLanguage("english")}><img src={flag_en} style={{width:"20%", height: "20%"}}/> English</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => setLanguage("czech")}><img src={flag_cz} style={{width:"20%", height: "20%"}}/> Czech</NavDropdown.Item>
+                </NavDropdown>
+            </Nav>
+            </div>
             <div className={darkMode === true ? 'header' : 'headerL'}>
 
 
                         <h1 style={
-                            darkMode === true ? {float:'left', fontSize:'1.1em', color: "white"} : {float:'left', fontSize:'1.1em'}
-                        }>Logged in as:  {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
+                            darkMode === true ? {float:'left', fontSize:'1em', color: "white"} : {float:'left', fontSize:'1em'}
+                        }>{language === "english" ?'Logged in as: ' : 'Přihlášen jako: '} {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
 
                         {userState ? (
                             // Pokud je uživatel přihlášen
                             <Nav>
-                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} onClick={logoutHandler}>Logout</Button>
+                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} onClick={logoutHandler}>{language === "english" ?'Logout' : 'Odhlásit'}</Button>
                             </Nav>
                         ) : (
                             // Pokud uživatel není přihlášen
@@ -103,21 +117,19 @@ const Header = () => {
                         </Modal.Header>
                         <Modal.Body>
                             {loginFail && <Alert variant='danger'>
-                                Incorrect username or password
+                                {language === "english" ? "Incorrect username or password" : "Nesprávné jméno nebo heslo"}
                             </Alert>}
                             <FormGroup>
                                 <FormControl
-                                    label='Username'
+                                    label={language === "english" ?'Username' : 'Jméno'}
                                     type='text'
-                                    placeholder='Enter username'
                                     onChange={(event) => loginFormData.username = event.target.value}
                                 />
                             </FormGroup>
                             <FormGroup>
                                 <FormControl
-                                    label='Password'
+                                    label={language === "english" ?'Password' : 'Heslo'}
                                     type='password'
-                                    placeholder='Enter password'
                                     onChange={(event) => loginFormData.password = event.target.value}
                                 />
                             </FormGroup>

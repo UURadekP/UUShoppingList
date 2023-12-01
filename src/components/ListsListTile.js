@@ -58,10 +58,10 @@ const ListsListTile = ({oneList}) => {
         }>
     <Col>
     <Row>
-        <p>Název Listu: {oneList.name}</p>
+        <p>{language === "english" ? "List Name:" : "Jméno Listu:"} {oneList.name}</p>
     </Row>
     <Row>
-        <p>ID Listu: {oneList.listid}</p>
+        <p>{language === "english" ? "List ID:" : "ID Listu:"} {oneList.listid}</p>
     </Row>
     </Col>
     </Link>

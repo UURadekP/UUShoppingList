@@ -23,7 +23,7 @@ function AddUserModal({ id, type }) {
     const {list, setList} = useContext(listContext);
     const [Fail, setFail] = useState(false);
     const [dupe, setDupe] = useState(false);
-    const {darkMode} = useContext(interfaceContext);
+    const {darkMode, language} = useContext(interfaceContext);
 
     const newUser = {
       username: '',
@@ -56,8 +56,6 @@ function AddUserModal({ id, type }) {
 
       //getUser's id from username
       let userIndex = users.map((user) => {return user.username}).indexOf(formState.username);
-
-      console.log("userIndex: " + userIndex);
 
       // validace exietnce usera
       if (userIndex == -1) {
@@ -117,22 +115,22 @@ function AddUserModal({ id, type }) {
     <>
 
         <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
-        {type === "add" ? ("Add user") : ("Remove user")}
+        {type === "add" ? (language === "english" ? ("Add user") : ("Přidat uživatele")) : (language === "english" ? ("Remove User") : ("Odebrat uživatele"))}
         </Button>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add user</Modal.Title>
+          <Modal.Title>{language === "english" ? "Add user" : "Přidat uživatele"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
         <Form onSubmit={onSubmit}>
               <Form.Group className='mb-3'>
-                <Form.Label>Username</Form.Label>
-                {Fail === true ? ( <Alert variant='danger'>This user doesn't exist!</Alert>) : ("")}
-                {dupe === true ? ( <Alert variant='danger'>This user is already added!</Alert>) : ("")}
+                <Form.Label>{language === "english" ? "Username" : "Jméno"}</Form.Label>
+                {Fail === true ? ( <Alert variant='danger'>{language === "english" ? "This user doesn't exist." : "Tento uživatel neexistuje."}</Alert>) : ("")}
+                {dupe === true ? ( <Alert variant='danger'>{language === "english" ? "This user is already added." : "Tento uživatel již v listu je."}</Alert>) : ("")}
                 <Form.Control
-                  placeholder="Username"
+                  placeholder={language === "english" ? "Username" : "Jméno"}
                   onChange={(event) => {formState.username = event.target.value}}
                 />
               </Form.Group>
@@ -142,13 +140,13 @@ function AddUserModal({ id, type }) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button 
           variant="primary"
           type="submit"
            onClick={() => {type === "add" ? (addUserToList(formState, id, users)) : (removeUserFromList(formState, id, users))}}>
-            Save Changes
+            {language === "english" ? "Confirm" : "Potvrdit"}
           </Button>
         </Modal.Footer>
       </Modal>

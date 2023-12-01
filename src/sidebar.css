@@ -110,11 +110,12 @@ li {
     height: 100%;
     max-width: 5em;
     margin-left: 1%;
+    font-size: 1em;
     background-color: #303030;
     border:none;
     float: left;
     position:relative;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -256,6 +257,7 @@ li {
     height: 100%;
     max-width: 5em;
     margin-left: 1%;
+    font-size: 1em;
     background-color: #afafaf;
     border:none;
     float: left;

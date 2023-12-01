@@ -7,7 +7,7 @@ const ConfirmationDialog = (props) => {
                 <Modal.Title>{props.userLeave} {props.itemDelete}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                This action is irreversible!
+                {props.text}
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onCancel} variant='secondary'>Cancel</Button>

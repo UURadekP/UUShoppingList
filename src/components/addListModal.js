@@ -7,7 +7,7 @@ import interfaceContext from "../interfaceContext";
 
 const AddListModal = ({userid}) => {
     const {list, setList} = useContext(listContext);
-    const {darkMode} = useContext(interfaceContext);
+    const {darkMode, language} = useContext(interfaceContext);
 
     const listToState = {
         name: "",
@@ -53,20 +53,20 @@ const AddListModal = ({userid}) => {
     return (
     <>
         <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
-          Add list
+        {language === "english" ? "Add List" : "Vytvořit list"}
         </Button>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add List</Modal.Title>
+          <Modal.Title>{language === "english" ? "Add List" : "Vytvořit list"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
         <Form onSubmit={onSubmit}>
               <Form.Group className='mb-3'>
                 <Form.Label>Username</Form.Label>
-                {Required === true ? ( <Alert variant='danger'>This field cannot be empty!</Alert>) : ("")}
-                {tooLong === true ? ( <Alert variant='danger'>The name can only be up to 24 letters long.</Alert>) : ("")}
+                {Required === true ? ( <Alert variant='danger'>{language === "english" ? "This field cannot be empty" : "Toto pole nesmí být prázdné"}</Alert>) : ("")}
+                {tooLong === true ? ( <Alert variant='danger'>{language === "english" ? "Name can only be up to 24 letters long" : "Jméno může byt maximálně 24 znaků dlouhé"}.</Alert>) : ("")}
                 <Form.Control
                   placeholder="List Name"
                   onChange={(event) => {formState.name = event.target.value}}
@@ -78,13 +78,13 @@ const AddListModal = ({userid}) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button 
           variant="primary"
           type="submit"
            onClick={() => {addList(list, formState)}}>
-            Save Changes
+            {language === "english" ? "Confirm" : "Potvrdit"}
           </Button>
         </Modal.Footer>
       </Modal>

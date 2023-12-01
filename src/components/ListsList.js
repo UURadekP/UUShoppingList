@@ -38,21 +38,21 @@ const ListsList = () => {
                     <input
                         className="searchBar"
                         type="search"
-                        placeholder="Search"
+                        placeholder={language === "english" ? "Search" : "Hledat"}
                         value={search}
                         onChange={(event) => setSearch(event.target.value)}
                     />
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                      Archived();
-                }}>Archived filter</Button>
+                }}>{language === "english" ? "Archived Filter" : "Filtr Archiv. Listů"}</Button>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     notArchived();
                 }}
-                >NotArchived filter</Button>
+                >{language === "english" ? "Non-Archived Filter" : "Filtr Nearchiv. Listů"}</Button>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     removeFilters();
                 }}
-                >Remove Filters</Button>
+                >{language === "english" ? "Remove Filters" : "Odebrat Filtery"}</Button>
                 </div>
                 <Row>{
 

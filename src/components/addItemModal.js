@@ -42,7 +42,7 @@ const AddItemModal = ({ id }) => {
 
     const {list, setList} = useContext(listContext)
     const {userState, setUserState} = useContext(userContext);
-    const {darkMode} = useContext(interfaceContext);
+    const {darkMode, language} = useContext(interfaceContext);
 
     
 
@@ -85,7 +85,7 @@ const AddItemModal = ({ id }) => {
     return (
     <>
         <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
-          Add Item
+        {language === "english" ? "Add Item" : "Přidat položku"}
         </Button>
 
         <Modal 
@@ -93,15 +93,15 @@ const AddItemModal = ({ id }) => {
         show={show} 
         onHide={handleClose}>
           <Modal.Header className="addItemModalEntryRest" closeButton>
-            <Modal.Title>Add Item</Modal.Title>
+            <Modal.Title>{language === "english" ? "Add Item" : "Přidat položku"}</Modal.Title>
           </Modal.Header >
           <Modal.Body dialogClassName="addItemModal" >
 
             <Form onSubmit={onSubmit}>
 
               <Form.Group>
-                <Form.Label>Item name</Form.Label>
-                {tooLong === true ? ( <Alert variant='danger'>This name is too long!</Alert>) : ("")}
+                <Form.Label>{language === "english" ? "Item Name" : "Název věci"}</Form.Label>
+                {tooLong === true ? ( <Alert variant='danger'>{language === "english" ? "This name is too long" : "Jméno je přílíš dlouhé"}</Alert>) : ("")}
                 <Form.Control
                   className='addModalFormEntryItemName'
                   onChange={(event) => formState.name = event.target.value}
@@ -112,9 +112,9 @@ const AddItemModal = ({ id }) => {
                 <Col md={3} lg={3} xl={3} xxl={3}>
           
               <Form.Group >
-                <Form.Label>Amount</Form.Label>
-                {textinAmount === true ? ( <Alert variant='danger'>Only number is expected!</Alert>) : ("")}
-                {negative === true ? ( <Alert variant='danger'>Number can't be negative!</Alert>) : ("")}
+                <Form.Label>{language === "english" ? "Amount" : "Počet"}</Form.Label>
+                {textinAmount === true ? ( <Alert variant='danger'>{language === "english" ? "Only number is accepted" : "Lze zadat pouze číslo"}</Alert>) : ("")}
+                {negative === true ? ( <Alert variant='danger'>{language === "english" ? "Number cannot be negative" : "Číslo nesmí být záporné"}</Alert>) : ("")}
                 <Form.Control
                   type="number"
                   onChange={(event) => {formState.amount = event.target.valueAsNumber}}
@@ -124,7 +124,7 @@ const AddItemModal = ({ id }) => {
               <Col md={5} lg={5} xl={5} xxl={5}>
               <Form.Group
                 style={{marginLeft:'50%'}}>
-              <Form.Label>Unit</Form.Label>
+              <Form.Label>{language === "english" ? "Unit" : "Jednotka"}</Form.Label>
                 <Form.Select
                 onChange={(event) => formState.unit = event.target.value}
                 >
@@ -138,13 +138,14 @@ const AddItemModal = ({ id }) => {
         </Row>
 
               
-
-
+        </Form>
+        </Modal.Body>
+        <Modal.Footer>
           <Button 
           variant="secondary" 
           className="addItemModalButtons" 
           onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button 
           variant="primary"
@@ -153,11 +154,12 @@ const AddItemModal = ({ id }) => {
           onClick={() => {
             onAddNewItem(formState, id)}}
           >
-          Submit
+          {language === "english" ? "Confirm" : "Potvrdit"}
         </Button>
-        </Form>
+        </Modal.Footer>
+        
 
-        </Modal.Body>
+
       </Modal>
     
     </>

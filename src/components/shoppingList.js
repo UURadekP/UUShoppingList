@@ -94,17 +94,17 @@ const ShoppingList = ({id}) => {
              <div className={ darkMode === true ? "searchDiv" : "searchDivL"}>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                      Checked();
-                }}>Checked filter</Button>
+                }}>{language === "english" ? "Checked Filter" : "Hotový filtr"}</Button>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                     notChecked();
                 }}
-                >Unchecked filter</Button>
+                >{language === "english" ? "Unchecked Filter" : "Nehotový filtr"}</Button>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => { removeFilters();
-                }}>Remove Filters</Button>
+                }}>{language === "english" ? "Remove Filters" : "Odebrat filtery"}</Button>
                 <input
                     className="searchBar"
                     type="search"
-                    placeholder="Search"
+                    placeholder={language === "english" ? "Search" : "Hledat"}
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
                 />

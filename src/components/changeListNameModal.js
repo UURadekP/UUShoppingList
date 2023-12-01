@@ -11,7 +11,7 @@ function ChangeListNameModal({ index }) {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     const {list, setList} = useContext(listContext);
-    const {darkMode} = useContext(interfaceContext);
+    const {darkMode, language} = useContext(interfaceContext);
 
     let newName = "";
 
@@ -30,20 +30,20 @@ function ChangeListNameModal({ index }) {
     <>
 
         <Button variant="primary" className={darkMode === true ? "button" : "buttonL"} onClick={handleShow}>
-        Change List Name
+        {language === "english" ? "Change List Name" : "Změnit jméno listu"}
         </Button>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Change List Name:</Modal.Title>
+          <Modal.Title>{language === "english" ? "Change List Name:" : "Změnit jméno listu:"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
         <Form onSubmit={onSubmit}>
               <Form.Group className='mb-3'>
-                <Form.Label>List Name:</Form.Label>
+                <Form.Label>{language === "english" ? "List Name" : "Jméno listu"}:</Form.Label>
                 <Form.Control
-                  placeholder="New List Name"
+                  placeholder={language === "english" ? "New List Name" : "Nové jméno listu"}
                   onChange={(event) => {newName = event.target.value}}
                 />
               </Form.Group>
@@ -53,13 +53,13 @@ function ChangeListNameModal({ index }) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button 
           variant="primary"
           type="submit"
            onClick={() => {changeListName(newName, index)}}>
-            Save Changes
+            {language === "english" ? "Confirm" : "Potvrdit"}
           </Button>
         </Modal.Footer>
       </Modal>
