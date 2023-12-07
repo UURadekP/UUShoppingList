@@ -22,10 +22,10 @@ const ShoppingListItem = ({item, index, onDelete}) => {
     return(<>
         <div 
             style={
-                item.completed == true && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%',border: '0.2vw solid green'}) 
-                : item.completed == false && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%', border: '0.2vw solid red'})
-                : item.completed == true && darkMode === true ? ({color: "white", background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%',border: '0.2vw solid green'}) 
-                : item.completed == false && darkMode === true ? ({color: "white", background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%',fontSize:'2.5em', marginTop:'1%', border: '0.2vw solid red'}) : ("")}>
+                item.completed == true && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid green'}) 
+                : item.completed == false && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid red'})
+                : item.completed == true && darkMode === true ? ({color: 'white', background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid green'}) 
+                : item.completed == false && darkMode === true ? ({color: 'white', background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid red'}) : ("")}>
 
  <div>
             <p>
@@ -33,7 +33,7 @@ const ShoppingListItem = ({item, index, onDelete}) => {
                 {item.amount + item.unit}
             </p>
         </div>
-        <div style={{display: 'inline-flex', float:'right'}}>
+        <div style={{display: 'inline-flex', float: 'right'}}>
         
         <input onChange={handleCheck}  
             type="checkbox" 
@@ -42,7 +42,7 @@ const ShoppingListItem = ({item, index, onDelete}) => {
         { isOwner === true ? (
         <Button 
         onClick={() => {setShowConfirmDialog(true)}}
-        style={{width: '50px', height:'50px', justifyContent:'center', marginLeft:'5%', marginBottom: '5%', marginRight:'1%' }}><i className="fa-solid fa-trash-can" style={{fontSize:'25px'}}></i></Button>) : ("")}
+        style={{width: '50px', height: '50px', justifyContent: 'center', marginLeft: '5%', marginBottom: '5%', marginRight: '1%' }}><i className="fa-solid fa-trash-can" style={{fontSize: '25px'}}></i></Button>) : ("")}
         </div>
 
         

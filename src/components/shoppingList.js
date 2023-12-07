@@ -6,7 +6,8 @@ import userContext from "../userContext";
 import listContext from "../listContext";
 import interfaceContext from "../interfaceContext";
 import "../sidebar.css";
-
+import PieChartComponent from "./piechart";
+import Collapsible from 'react-collapsible';
 
 
 
@@ -20,6 +21,10 @@ const ShoppingList = ({id}) => {
     const [search, setSearch] = useState("");
     const [filterByNotChecked, setFilterByNotChecked] = useState(false);
     const [filterByChecked, setFilterByChecked] = useState(false);
+    const [chartDivShow, setchartDivShow] = useState(true);
+
+    let completedItemCount = 0;
+    let notCompletedItemCount = 0;
 
     function onDelete(listIndex, id) {
 
@@ -43,6 +48,13 @@ const ShoppingList = ({id}) => {
     
     const listIndex = getIndexByID(id);
 
+    list[listIndex].items.forEach((item) => {
+        if (item.completed === true) {
+            completedItemCount = completedItemCount + 1;
+        } else {
+            notCompletedItemCount = notCompletedItemCount + 1;
+        }
+    });
 
     function getUserStatus(list, listIndex) {
 
@@ -158,7 +170,15 @@ const ShoppingList = ({id}) => {
             </Row>
     
         </div>
-    
+        {/* <Collapsible className="chartCollapsible" openedClassName="chartCollapsible" trigger="Start Here" transitionTime="200" open={chartDivShow}>
+        <div className="chart">
+            <PieChartComponent 
+            completed={completedItemCount}
+            notCompleted={notCompletedItemCount}
+            />
+        </div>
+        </Collapsible> */}
+        
     
 
         </> )

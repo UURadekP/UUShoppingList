@@ -139,6 +139,17 @@ div#root {
     color:black;
 }
 
+.chartCollapsible {
+    width:auto;
+    height:5%;
+    background-color:#1a1a1a;
+    float:right;
+    position:fixed;
+    color:white;
+    z-index: 11;
+    
+}
+
 /* 
 
 ---------------------------------------------------------------------------LIGHT MODE-----------------------------------------------------------------------

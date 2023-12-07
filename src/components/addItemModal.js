@@ -95,7 +95,7 @@ const AddItemModal = ({ id }) => {
           <Modal.Header className="addItemModalEntryRest" closeButton>
             <Modal.Title>{language === "english" ? "Add Item" : "Přidat položku"}</Modal.Title>
           </Modal.Header >
-          <Modal.Body dialogClassName="addItemModal" >
+          <Modal.Body className="addItemModal" >
 
             <Form onSubmit={onSubmit}>
 

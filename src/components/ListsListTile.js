@@ -5,6 +5,8 @@ import userContext from "../userContext";
 import listContext from "../listContext";
 import interfaceContext from "../interfaceContext";
 import ConfirmationDialog from "./ConfirmationDialog";
+import PieChartComponent from "./piechart";
+
 
 
 
@@ -15,6 +17,19 @@ const ListsListTile = ({oneList}) => {
     const { darkMode, setDarkMode, language, setLanguage } = useContext(interfaceContext);
     const {userState, setUserState} = useContext(userContext);
     const [ showConfirmDialog, setShowConfirmDialog] = useState(false);
+
+    let completedItemCount = 0;
+    let notCompletedItemCount = 0;
+
+
+        oneList.items.forEach((item) => {
+            if (item.completed === true) {
+                completedItemCount = completedItemCount + 1;
+            } else {
+                notCompletedItemCount = notCompletedItemCount + 1;
+            }
+        });
+    
 
 
     function deleteList(lists, oneList) {
@@ -61,8 +76,11 @@ const ListsListTile = ({oneList}) => {
         <p>{language === "english" ? "List Name:" : "Jméno Listu:"} {oneList.name}</p>
     </Row>
     <Row>
-        <p>{language === "english" ? "List ID:" : "ID Listu:"} {oneList.listid}</p>
+        <p>{language === "english" ? "Number of items:" : "Počet položek:"} {oneList.items.length}</p>
     </Row>
+    <Row>
+       <p>{language === "english" ? "State:" : "Stav:"} <div style={{display: 'inline-flex', fontWeight: 'bold'}}><div style={{color: 'green'}}>{completedItemCount + " "}</div>&nbsp;/  <div style={{color: 'red'}}> &nbsp;{notCompletedItemCount}</div></div></p>
+        </Row>
     </Col>
     </Link>
     <Col>
@@ -90,6 +108,7 @@ const ListsListTile = ({oneList}) => {
     </Row>
     </Col>
     </div>
+
     
     
     <ConfirmationDialog itemDelete={"Are you sure?"}
