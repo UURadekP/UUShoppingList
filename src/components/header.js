@@ -93,11 +93,11 @@ const Header = () => {
                                 <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} onClick={logoutHandler}>{language === "english" ?'Logout' : 'Odhlásit'}</Button>
                             </Nav>
                         ) : (
-                            // Pokud uživatel není přihlášen
-                            <Nav>
-                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"}  onClick={() => setShowLogin(true)}>Login</Button>
-                                <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} >Register</Button>
-                            </Nav>
+                    // Pokud uživatel není přihlášen
+                        <Nav>
+                            <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} onClick={() => setShowLogin(true)}>Login</Button>
+                            {/* <Button className={darkMode === true ? "headerbutton" : "headerbuttonL"} >Register</Button> */}
+                        </Nav>
                         )}
 
 

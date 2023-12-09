@@ -2,7 +2,7 @@
 body {
     width: 100%;
     height: 100%;
-    background-color: #1a1a1a;
+
 }
 
 .wrapper {
@@ -29,7 +29,7 @@ h1 {
 
 .sidebar {
     width: 20%;
-    height: 100vh;
+    height: 65.2em;
     background: #1a1a1a;
     background-color: #1a1a1a;
     position:absolute;
@@ -70,20 +70,20 @@ li {
 .shoppingList {
     margin-left:20%;
     width: 80%;
-    height: 100%;
-    position:absolute;
+    height: 120%;
+    position:relative;
     margin-top: 2%;
 
 }
 .searchDiv {
     width:100%;
-    height: 9%;
+    height: 8%;
     background-color: #1a1a1a;
     display: in-line;
 }
 .searchBar {
     width: 30%;
-    height: 9%;
+    height: 8%;
     margin-left: 1%;
     position: absolute;
     font-size: 3vh;
@@ -108,7 +108,7 @@ li {
 }
 
 .headerbutton {
-    width: 4em;
+    width: 5em;
     height: 100%;
     max-width: 5em;
     margin-left: 1%;
@@ -117,7 +117,7 @@ li {
     border:none;
     float: left;
     position:relative;
-    text-align: left;
+    text-align: center;
 
 }
 
@@ -139,29 +139,6 @@ div#root {
 
 .link {
     color:black;
-}
-
-.chartCollapsible {
-    height: 100%;
-    width: 100%;
-    background-color: #242424;
-    border: none;
-    margin-top: 1%;
-    font-size: 100%;
-    color:white;
-    text-align: center;
-    padding-top: 10%;
-    
-}
-
-.chartCollapsibleOpened {
-    height: 500%;
-    width: 100%;
-    background-color:#1a1a1a;
-    float:left;
-    color:white;
-    text-align: center;
-    
 }
 
 .shoppingListItemF {
@@ -222,7 +199,7 @@ h1 {
 
 .sidebarL {
     width: 20%;
-    height: 100vh;
+    height: 65.2em;
     background: rgb(170, 170, 170);
     position:absolute;
     margin-top:2%;
@@ -251,23 +228,24 @@ h1 {
     text-align: center;
 }
 
-.shoppingList {
+.shoppingListL {
     margin-left:20%;
     width: 80%;
-    height: 100%;
+    height: 120%;
+    background-color: white;
     position:absolute;
     margin-top: 2%;
 
 }
 .searchDivL {
     width:100%;
-    height: 9%;
+    height: 8%;
     background-color: rgb(170, 170, 170);
     display: in-line;
 }
 .searchBarL {
     width: 30%;
-    height: 9%;
+    height: 8%;
     margin-left: 1%;
     position: absolute;
     font-size: 3vh;
@@ -293,11 +271,12 @@ h1 {
 }
 
 .headerbuttonL {
-    width: 4em;
+    width: 5em;
     height: 100%;
     max-width: 5em;
     margin-left: 1%;
     font-size: 1em;
+    color: black;
     background-color: #afafaf;
     border:none;
     float: left;
@@ -326,29 +305,6 @@ div#root {
     color:black;
 }
 
-.chartCollapsibleL {
-    height: 100%;
-    width: 100%;
-    background-color: #e9e9e9;
-    border: none;
-    margin-top: 1%;
-    font-size: 100%;
-    color:black;
-    text-align: center;
-    padding-top: 10%;
-    
-}
-
-.chartCollapsibleOpenedL {
-    height: 500%;
-    width: 95%;
-    background-color:rgb(170, 170, 170);
-    padding-top: 10%;
-    float:left;
-    color:black;
-    text-align: center;
-    
-}
 .shoppingListItemLF {
     color: black;
     background: linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%);

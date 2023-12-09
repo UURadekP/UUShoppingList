@@ -11,7 +11,7 @@ const PieChartComponent = (props) => {
   let height = useWindowDimensions().height
 
   const size = {
-    width: width > height ? width*0.25 : width*0.45,
+    width: width > height ? width*0.25 : width*0.425,
     height: width > height ? height*0.5 : height*0.125,
     legend: { hidden: true },
   }

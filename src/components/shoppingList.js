@@ -86,7 +86,7 @@ const ShoppingList = ({id}) => {
     return(<>
 
 
-        <div className="shoppingList">
+        <div className={ darkMode === true ? "shoppingList" : "shoppingListL"}>
              <div className={ darkMode === true ? "searchDiv" : "searchDivL"}>
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => {
                      Checked();
@@ -98,7 +98,7 @@ const ShoppingList = ({id}) => {
                 <Button className={ darkMode === true ? "searchbarButton" : "searchbarButtonL"} onClick={() => { removeFilters();
                 }}>{language === "english" ? "Remove Filters" : "Odebrat filtery"}</Button>
                 <input
-                    className="searchBar"
+                    className={ darkMode === true ? "searchBar" : "searchBarL"}
                     type="search"
                     placeholder={language === "english" ? "Search" : "Hledat"}
                     value={search}
@@ -108,7 +108,7 @@ const ShoppingList = ({id}) => {
 
             
 
-            <Row>{
+            <Row style={{width: '100%'}}>{
             //kontrola přístupu
                 list[listIndex].ownerid === userState.id || list[listIndex].users.map((user) => { return user.id }).indexOf(userState.id) !== -1 ? (
 
