@@ -38,7 +38,6 @@ const ListsListTile = ({oneList}) => {
         list.splice(listIndex, 1);
         setList([...list])
         setShowConfirmDialog(false);
-        console.log(list);
     }
 
     function archiveList(lists, oneList) {

@@ -6,10 +6,6 @@ import userContext from "../userContext";
 import listContext from "../listContext";
 import interfaceContext from "../interfaceContext";
 import "../sidebar.css";
-import PieChartComponent from "./piechart";
-import Collapsible from 'react-collapsible';
-
-
 
 const ShoppingList = ({id}) => {
     
@@ -32,7 +28,6 @@ const ShoppingList = ({id}) => {
         }
 
         list[listIndex].items.splice(itemIndex, 1);
-        console.log(list);
         setList([...list]);
 
 

@@ -18,8 +18,6 @@ const Header = () => {
     const [showLogin, setShowLogin] = useState(false);
     // const [showRegister, setShowRegister] = useState(false); plánuji využít až s připojením backendu
 
-    console.log(darkMode);
-
     const defaultLoginData = {
         username: 'guest',
         password: ''
