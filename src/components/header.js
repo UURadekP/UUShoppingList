@@ -61,24 +61,24 @@ const Header = () => {
     return (
         
         <div style={{}}>
-                <div style={{float: "right", flex: "inline", flexWrap: "wrap", width:"12vw", marginRight: "5%", marginTop: "1%"}}>
+                <div style={{float: 'right', flex: 'inline', flexWrap: 'wrap', width:'12vw', marginRight: '5%', marginTop: '1%'}}>
                 <Form.Check // prettier-ignore
                     type="switch"
                     style={
-                        darkMode === true ? {float: "right", color:"white", marginTop: '5%'}  :  {float: "right", color:"black", marginTop: '5%'}
+                        darkMode === true ? {float: 'right', color: 'white', marginTop: '5%'}  :  {float: 'right', color: 'black', marginTop: '5%'}
                     } 
                     label="Mode"
                     defaultChecked="true"
                     onChange={() => {setDarkMode(!darkMode)}}
                 />
  
-            <Nav style={{float: "right"}}>
+            <Nav style={{float: 'right'}}>
                 <NavDropdown
                     title="Language"
                     menuVariant="dark"
                 >
-                    <NavDropdown.Item onClick={() => setLanguage("english")}><img src={flag_en} style={{width:"20%", height: "20%"}}/> English</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => setLanguage("czech")}><img src={flag_cz} style={{width:"20%", height: "20%"}}/> Czech</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => setLanguage("english")}><img src={flag_en} style={{width: '20%', height: '20%'}}/> English</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => setLanguage("czech")}><img src={flag_cz} style={{width: '20%', height: '20%'}}/> Czech</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
             </div>
@@ -86,7 +86,7 @@ const Header = () => {
 
 
                         <h1 style={
-                            darkMode === true ? {float:'left', fontSize:'1em', color: "white"} : {float:'left', fontSize:'1em'}
+                            darkMode === true ? {float: 'left', fontSize: '1em', color: 'white'} : {float: 'left', fontSize: '1em'}
                         }>{language === "english" ?'Logged in as: ' : 'Přihlášen jako: '} {(userState.username === undefined) ? ("guest") : (userState.username)}</h1>
 
                         {userState ? (

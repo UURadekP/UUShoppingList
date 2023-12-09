@@ -21,10 +21,7 @@ const ShoppingList = ({id}) => {
     const [search, setSearch] = useState("");
     const [filterByNotChecked, setFilterByNotChecked] = useState(false);
     const [filterByChecked, setFilterByChecked] = useState(false);
-    const [chartDivShow, setchartDivShow] = useState(true);
 
-    let completedItemCount = 0;
-    let notCompletedItemCount = 0;
 
     function onDelete(listIndex, id) {
 
@@ -47,15 +44,7 @@ const ShoppingList = ({id}) => {
     }
     
     const listIndex = getIndexByID(id);
-
-    list[listIndex].items.forEach((item) => {
-        if (item.completed === true) {
-            completedItemCount = completedItemCount + 1;
-        } else {
-            notCompletedItemCount = notCompletedItemCount + 1;
-        }
-    });
-
+    
     function getUserStatus(list, listIndex) {
 
         if (listIndex === -1) {
@@ -121,6 +110,9 @@ const ShoppingList = ({id}) => {
                     onChange={(event) => setSearch(event.target.value)}
                 />
                 </div>
+
+            
+
             <Row>{
             //kontrola přístupu
                 list[listIndex].ownerid === userState.id || list[listIndex].users.map((user) => { return user.id }).indexOf(userState.id) !== -1 ? (
@@ -168,17 +160,10 @@ const ShoppingList = ({id}) => {
                         }
             
             </Row>
+
     
         </div>
-        {/* <Collapsible className="chartCollapsible" openedClassName="chartCollapsible" trigger="Start Here" transitionTime="200" open={chartDivShow}>
-        <div className="chart">
-            <PieChartComponent 
-            completed={completedItemCount}
-            notCompleted={notCompletedItemCount}
-            />
-        </div>
-        </Collapsible> */}
-        
+
     
 
         </> )

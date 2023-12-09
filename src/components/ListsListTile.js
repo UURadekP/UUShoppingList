@@ -89,7 +89,7 @@ const ListsListTile = ({oneList}) => {
         { userState.id === oneList.ownerid ? (
         <Button 
         onClick={() => {setShowConfirmDialog(true)}}
-        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-trash-can" style={{fontSize:'25px'}}></i></Button>) : ("")}
+        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-trash-can" style={{fontSize: '25px'}}></i></Button>) : ("")}
         </p>
     </Row>
     <Row>
@@ -97,12 +97,12 @@ const ListsListTile = ({oneList}) => {
         { userState.id === oneList.ownerid && oneList.archived === false ? (
         <Button 
         onClick={() => {archiveList(list, oneList)}}
-        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-box" style={{fontSize:'25px'}} ></i></Button>) 
+        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i className="fa-solid fa-box" style={{fontSize: '25px'}} ></i></Button>) 
         : 
         (
         <Button 
         onClick={() => {unArchiveList(list, oneList)}}
-        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i class="fa-solid fa-box-open" style={{fontSize:'25px'}}></i></Button>)
+        style={{width: '75px', height:'75px', justifyContent:'center', marginTop: '5%' }}><i class="fa-solid fa-box-open" style={{fontSize: '25px'}}></i></Button>)
         }
         </p>
     </Row>

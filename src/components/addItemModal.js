@@ -26,7 +26,7 @@ const AddItemModal = ({ id }) => {
       id: '',
       amount: 2,
       unit: "g",
-      complete: false,
+      completed: false,
     }
 
 
@@ -123,7 +123,7 @@ const AddItemModal = ({ id }) => {
               </Col>
               <Col md={5} lg={5} xl={5} xxl={5}>
               <Form.Group
-                style={{marginLeft:'50%'}}>
+                style={{marginLeft: '50%'}}>
               <Form.Label>{language === "english" ? "Unit" : "Jednotka"}</Form.Label>
                 <Form.Select
                 onChange={(event) => formState.unit = event.target.value}

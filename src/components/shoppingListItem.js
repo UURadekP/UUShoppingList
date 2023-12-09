@@ -20,12 +20,14 @@ const ShoppingListItem = ({item, index, onDelete}) => {
 
 
     return(<>
-        <div 
-            style={
-                item.completed == true && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid green'}) 
-                : item.completed == false && darkMode === false ? ({background: 'linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(163,163,163,1) 51%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid red'})
-                : item.completed == true && darkMode === true ? ({color: 'white', background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid green'}) 
-                : item.completed == false && darkMode === true ? ({color: 'white', background: 'linear-gradient(155deg, rgba(31,31,31,1) 6%, rgba(97,97,97,1) 87%)', width: '95%', height: '100%', fontSize: '2.5em', marginTop: '1%', border: '0.2vw solid red'}) : ("")}>
+        <div className={
+            item.completed == true && darkMode === false ? "shoppingListItemLF"
+            : item.completed == false && darkMode === false ? "shoppingListItemLNF"
+            : item.completed == true && darkMode === true ? "shoppingListItemF"
+            : "shoppingListItemNF"
+        }>
+
+
 
  <div>
             <p>
